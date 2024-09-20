@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+  <form action="{{ url_for('update_student', name=student.name) }}" method="POST">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="{{ student.name }}" required>
+    </div>
+    <div class="form-group">
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" value="{{ student.country }}" required>
+    </div>
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" value="{{ student.city }}" required>
+    </div>
+    <div class="form-group">
+      <label for="dateofbirth">Date of birth:</label>
+      <input type="date" id="dateofbirth" name="dateofbirth" value="{{ student.dateofbirth }}" required>
+    </div>
+    <div class="form-group">
+      <label for="skills">Skills:</label>
+      <textarea id="skills" name="skills" rows="5">{{ student.skills | join(', ') }}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="bio">Bio:</label>
+      <textarea id="bio" name="bio" rows="3">{{ student.bio }}</textarea>
+    </div>
+    <div>
+      <input type="submit" class="btn" value="Update">
+    </div>
+  </form>
+</div>
+{% endblock %}
